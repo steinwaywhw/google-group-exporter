@@ -1,0 +1,503 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>\n\n
+    <title>variables in load paths - Google Groups</title>\n
+    <link rel="canonical" href="https://groups.google.com/d/topic/ats-lang-users/i_AKS-nggZY">\n
+    <meta property="og:title" content="variables in load paths">\n
+    <meta property="og:type" content="website">\n
+    <meta property="og:url" content="https://groups.google.com/forum/#!topic/ats-lang-users/i_AKS-nggZY">\n
+    <meta property="og:image" content="http://www.google.com/images/icons/product/groups-128.png">\n
+    <meta property="og:site_name" content="Google Groups">\n
+    <meta property="og:description" content="Posted 12/10/14 9:19 AM, 22 messages">
+</head>\n
+
+<body>\n\n\n
+    <h2>variables in load paths</h2>\n<i>Showing 1-22 of 22 messages</i>\n
+    <table border="0" cellspacing="0">
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/i3SWWIdIspkJ" title="variables in load paths">variables in load paths</a></td>\n
+            <td class="author"><span>Brandon Barker</span></td>\n
+            <td class="lastPostDate">12/10/14 9:19 AM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">Sorry if it has been asked before, I will try to update the approrpiate docs as needed. If you have something like:
+                            <div><br></div>
+                            <div>
+                                <div>staload JNI = &quot;{$JNI}/SATS/jni.sats&quot;</div>
+                            </div>
+                            <div><br></div>
+                            <div>How do you set $JNI? Environment variables seems to not be the answer.</div>
+                            <div><br></div>
+                            <div><br></div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/MAkwU4KAnf8J" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>gmhwxi</span></td>\n
+            <td class="lastPostDate">12/10/14 9:33 AM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">You can set it as follows:<br>
+                            <div><br>#define JNI_targetloc &quot;$PATSHOMERELOC/contrib/JNI&quot;<br><br></div>
+                        </div>
+                        <div><br>
+                            <div>
+                                <blockquote style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex"><span><font color="#888888">\n\n<p></p>\n\n-- <br>\nYou received this message because you are subscribed to the Google Groups &quot;ats-lang-users&quot; group.<br>\nTo unsubscribe from this group and stop receiving emails from it, send an email to <a href="javascript:void(0);" rel="nofollow">ats-lang-user...@googlegroups.com</a>.<br>\nTo post to this group, send email to <a href="javascript:void(0);" rel="nofollow">ats-lan...@googlegroups.com</a>.<br>\nVisit this group at <a href="http://groups.google.com/group/ats-lang-users" rel="nofollow">http://groups.google.com/group/ats-lang-users</a>.<br>\nTo view this discussion on the web visit <a href="https://groups.google.com/d/msgid/ats-lang-users/10bef205-098c-48c0-85ba-f07b0ab6f76b%40googlegroups.com?utm_medium=email&amp;utm_source=footer" rel="nofollow">https://groups.google.com/d/msgid/ats-lang-users/10bef205-098c-48c0-85ba-f07b0ab6f76b%40googlegroups.com</a>.<br>\n</font></span></blockquote>
+                            </div><br></div>\n</div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/PWgKpZ1dX9AJ" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>Brandon Barker</span></td>\n
+            <td class="lastPostDate">12/10/14 9:55 AM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">I defined this in e.g Gradle/Calculator.dats (trying several permutations of fulling expanding $PATSHOMERELOC and setting within %{^ %}) to no avail.</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject">
+                <a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/oIfgYLfSgIwJ" title=""></a>
+            </td>\n
+            <td class="author"><span>unk...@googlegroups.com</span></td>\n
+            <td class="lastPostDate">12/10/14 9:56 AM</td>\n
+            <td class="snippet"><i>&lt;This message has been deleted.&gt;</i></td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/mvg1ua9o1loJ" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>gmhwxi</span></td>\n
+            <td class="lastPostDate">12/10/14 9:57 AM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr"><br>You can also do it this way:<br><br>patsopt -DATS JNI_targetloc=\\&quot;${JNI}\\&quot; ...<br><br>if you set JNI as an environment variable.</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/ZEeaElFF7csJ" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>Brandon Barker</span></td>\n
+            <td class="lastPostDate">12/10/14 9:57 AM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">Oh, maybe I need to use atspkgreloc...\xc2\xa0</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/QiQ0thIRPDAJ" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>gmhwxi</span></td>\n
+            <td class="lastPostDate">12/10/14 10:05 AM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">Maybe PATSHOMERELOC was not properly set.
+                            <blockquote><br><br>On Wednesday, December 10, 2014 12:55:10 PM UTC-5, Brandon Barker wrote:</blockquote>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/sNL9OykBDKQJ" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>Brandon Barker</span></td>\n
+            <td class="lastPostDate">12/10/14 10:12 AM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">It seems to be correct in the environment:
+                            <div>
+                                <div><br></div>
+                                <div>echo $PATSHOMERELOC\xc2\xa0</div>
+                                <div>/home/brandon/ATS-Postiats-contrib</div>
+                            </div>
+                            <div><br></div>
+                        </div>
+                        <div><br>
+                            <div>
+                                <blockquote style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">\nTo view this discussion on the web visit <a href="https://groups.google.com/d/msgid/ats-lang-users/70ed9a31-c0db-43d4-b217-e6dbff5b2824%40googlegroups.com?utm_medium=email&amp;utm_source=footer" rel="nofollow">https://groups.google.com/d/msgid/ats-lang-users/70ed9a31-c0db-43d4-b217-e6dbff5b2824%40googlegroups.com</a>.<br>\n</blockquote>
+                            </div><br><br>
+                            <div><br></div>-- <br>
+                            <div>Brandon Barker<br><a href="javascript:void(0);" rel="nofollow">brandon...@gmail.com</a><br><span style="padding-right:16px;width:16px;min-height:16px"></span></div>\n</div>\n</div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/MJICKjZaOgoJ" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>gmhwxi</span></td>\n
+            <td class="lastPostDate">12/10/14 10:18 AM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">If you paste your code here, then we should be able to find out.</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/MdBke7dWi4EJ" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>Brandon Barker</span></td>\n
+            <td class="lastPostDate">12/10/14 10:24 AM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">I tried this one too, but it seems to be the same (I have attached the file):
+                            <div><br></div>
+                            <div>
+                                <div style="border:1px solid rgb(187,187,187);word-wrap:break-word"><code><div><span style="color:#000">brandon@brandon</span><span style="color:#660">-</span><span style="color:#000">OEM </span><span style="color:#660">~</span><span style="color:#080">/ATS-Postiats-contrib/</span><span style="color:#000">projects</span><span style="color:#660">/</span><span style="color:#000">SMALL</span><span style="color:#660">/</span><span style="color:#606">Calculator</span><span style="color:#660">/</span><span style="color:#606">Gradle</span><span style="color:#000"> $ echo $JNI<br></span><span style="color:#660">/</span><span style="color:#000">home</span><span style="color:#660">/</span><span style="color:#000">brandon</span><span style="color:#660">/</span><span style="color:#000">ATS</span><span style="color:#660">-</span><span style="color:#606">Postiats</span><span style="color:#660">-</span><span style="color:#000">contrib</span><span style="color:#660">/</span><span style="color:#000">contrib</span><span style="color:#660">/</span><span style="color:#000">JNI<br>brandon@brandon</span><span style="color:#660">-</span><span style="color:#000">OEM </span><span style="color:#660">~</span><span style="color:#080">/ATS-Postiats-contrib/</span><span style="color:#000">projects</span><span style="color:#660">/</span><span style="color:#000">SMALL</span><span style="color:#660">/</span><span style="color:#606">Calculator</span><span style="color:#660">/</span><span style="color:#606">Gradle</span><span style="color:#000"> $ patsopt </span><span style="color:#660">-</span><span style="color:#000">DATS JNI_targetloc</span><span style="color:#660">=\\</span><span style="background-color:rgb(250,250,250)"><span style="color:#080">&quot;${JNI}\\&quot; -d Calculator.dats \xc2\xa0| grep JNI</span></span><span style="color:#080"><br></span><span style="background-color:rgb(250,250,250)"><span style="color:#080">/home/brandon/ATS-Postiats-contrib/contrib/JNI/SATS/jni.sats: 249(line=15, offs=1) -- 284(line=17, offs=3)</span></span><span style="color:#080"><br></span><span style="background-color:rgb(255,255,0)"><span style="color:#080">#include &quot;</span></span><span style="background-color:rgb(255,255,0)"><span style="color:#000">JNI</span><span style="color:#660">/</span><span style="color:#000">CATS</span><span style="color:#660">/</span><span style="color:#000">jni</span><span style="color:#660">.</span><span style="color:#000">cats</span></span><span style="background-color:rgb(255,255,0)"><span style="color:#080">&quot;<br></span></span><span style="background-color:rgb(250,250,250)"><span style="color:#080">ATSdyncst_mac(atscntrb_JNI_GetStringUTFChars)</span></span><span style="color:#080"><br></span><span style="background-color:rgb(250,250,250)"><span style="color:#080">ATSdyncst_mac(atscntrb_JNI_ReleaseStringUTFChars)</span></span><span style="color:#080"><br></span><span style="background-color:rgb(250,250,250)"><span style="color:#080">ATSdyncst_mac(atscntrb_JNI_RaiseExceptionByClassName)</span></span><span style="color:#080"><br></span><span style="background-color:rgb(250,250,250)"><span style="color:#080">ATSINSflab(__patsflab_JNI_eval):</span></span><span style="color:#080"><br></span><span style="background-color:rgb(250,250,250)"><span style="color:#080">ATSINSmove(tmp960, atscntrb_JNI_GetStringUTFChars(arg0, arg2)) ;</span></span><span style="color:#080"><br></span><span style="background-color:rgb(250,250,250)"><span style="color:#080">ATSINSmove_void(tmp962, atscntrb_JNI_ReleaseStringUTFChars(arg0, arg2, tmp960)) ;</span></span><span style="color:#080"><br></span><span style="background-color:rgb(250,250,250)"><span style="color:#080">ATSINSmove_void(tmp964, atscntrb_JNI_RaiseExceptionByClassName(arg0, ATSPMVstring(&quot;</span></span><span style="color:#000">java</span><span style="color:#660">/</span><span style="color:#000">lang</span><span style="color:#660">/</span><span style="color:#606">IllegalArgumentException</span><span style="color:#080">&quot;), ATSPMVstring(&quot;</span><span style="color:#606">ParsingError</span><span style="color:#080">&quot;))) ;<br><br><br></span></div></code></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/7uUVCaVhew8J" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>gmhwxi</span></td>\n
+            <td class="lastPostDate">12/10/14 10:29 AM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">If you can already generate *_dats.c, it means the following line worked:
+                            <blockquote><br><br>staload JNI = &quot;{$JNI}/SATS/jni.sats&quot;<br></blockquote>
+                        </div>
+                        <div><br>
+                            <div>
+                                <blockquote style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex"><span><font color="#888888"><blockquote>\n\n<p></p>\n\n-- <br>\nYou received this message because you are subscribed to the Google Groups &quot;ats-lang-users&quot; group.<br>\nTo unsubscribe from this group and stop receiving emails from it, send an email to <a href="javascript:void(0);" rel="nofollow">ats-lang-user...@googlegroups.com</a>.<br>\nTo post to this group, send email to <a href="javascript:void(0);" rel="nofollow">ats-lan...@googlegroups.com</a>.<br>\nVisit this group at <a href="http://groups.google.com/group/ats-lang-users" rel="nofollow">http://groups.google.com/group/ats-lang-users</a>.<br></blockquote>\nTo view this discussion on the web visit <a href="https://groups.google.com/d/msgid/ats-lang-users/a3e802b0-ee6d-4d00-9746-433624984b6d%40googlegroups.com?utm_medium=email&amp;utm_source=footer" rel="nofollow">https://groups.google.com/d/msgid/ats-lang-users/a3e802b0-ee6d-4d00-9746-433624984b6d%40googlegroups.com</a>.<br>\n</font></span></blockquote>
+                            </div><br></div>\n</div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/5XNC7DM9neoJ" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>gmhwxi</span></td>\n
+            <td class="lastPostDate">12/10/14 10:44 AM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">I tried your source code and encountered no problems.<br><br>By the way, JNI_targetloc is already defined in share/atspre_define.hats:<br><br><a href="https://github.com/githwxi/ATS-Postiats/blob/master/share/atspre_define.hats" rel="nofollow">https://github.com/githwxi/ATS-Postiats/blob/master/share/atspre_define.hats</a><br><br>There is no need to define it again unless your new definition is different.
+                            <blockquote><br><br>On Wednesday, December 10, 2014 1:29:51 PM UTC-5, gmhwxi wrote:</blockquote>
+                            <blockquote style="margin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex">
+                                <blockquote>
+                                    <div dir="ltr">If you can already generate *_dats.c, it means the following line worked:<br><br>staload JNI = &quot;{$JNI}/SATS/jni.sats&quot;<br></div>
+                                </blockquote>
+                                <blockquote>
+                                    <div><br>
+                                        <div>On Wed, Dec 10, 2014 at 1:24 PM, Brandon Barker<span dir="ltr"></span> wrote:<br>
+                                            <blockquote style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+                                                <div dir="ltr">I tried this one too, but it seems to be the same (I have attached the file):
+                                                    <div><br></div>
+                                                    <div>
+                                                        <div style="border:1px solid rgb(187,187,187);word-wrap:break-word"><code><div><span style="color:#000">brandon@brandon</span><span style="color:#660">-</span><span style="color:#000">OEM </span><span style="color:#660">~</span><span style="color:#080">/ATS-Postiats-contrib/</span><span style="color:#000">projects</span><span style="color:#660">/</span><span style="color:#000">SMALL</span><span style="color:#660">/</span><span style="color:#606">Calculator</span><span style="color:#660">/</span><span style="color:#606">Gradle</span><span style="color:#000"> $ echo $JNI<br></span><span style="color:#660">/</span><span style="color:#000">home</span><span style="color:#660">/</span><span style="color:#000">brandon</span><span style="color:#660">/</span><span style="color:#000">ATS</span><span style="color:#660">-</span><span style="color:#606">Postiats</span><span style="color:#660">-</span><span style="color:#000">contrib</span><span style="color:#660">/</span><span style="color:#000">contrib</span><span style="color:#660">/</span><span style="color:#000">JNI<br>brandon@brandon</span><span style="color:#660">-</span><span style="color:#000">OEM </span><span style="color:#660">~</span><span style="color:#080">/ATS-Postiats-contrib/</span><span style="color:#000">projects</span><span style="color:#660">/</span><span style="color:#000">SMALL</span><span style="color:#660">/</span><span style="color:#606">Calculator</span><span style="color:#660">/</span><span style="color:#606">Gradle</span><span style="color:#000"> $ patsopt </span><span style="color:#660">-</span><span style="color:#000">DATS JNI_targetloc</span><span style="color:#660">=\\</span><span style="background-color:rgb(250,250,250)"><span style="color:#080">&quot;${JNI}\\&quot; -d Calculator.dats \xc2\xa0| grep JNI</span></span><span style="color:#080"><br></span><span style="background-color:rgb(250,250,250)"><span style="color:#080">/home/brandon/ATS-Postiats-contrib/contrib/JNI/SATS/jni.sats: 249(line=15, offs=1) -- 284(line=17, offs=3)</span></span><span style="color:#080"><br></span><span style="background-color:rgb(255,255,0)"><span style="color:#080">#include &quot;</span></span><span style="background-color:rgb(255,255,0)"><span style="color:#000">JNI</span><span style="color:#660">/</span><span style="color:#000">CATS</span><span style="color:#660">/</span><span style="color:#000">jni</span><span style="color:#660">.</span><span style="color:#000">cats</span></span><span style="background-color:rgb(255,255,0)"><span style="color:#080">&quot;<br></span></span><span style="background-color:rgb(250,250,250)"><span style="color:#080">ATSdyncst_mac(atscntrb_JNI_GetStringUTFChars)</span></span><span style="color:#080"><br></span><span style="background-color:rgb(250,250,250)"><span style="color:#080">ATSdyncst_mac(atscntrb_JNI_ReleaseStringUTFChars)</span></span><span style="color:#080"><br></span><span style="background-color:rgb(250,250,250)"><span style="color:#080">ATSdyncst_mac(atscntrb_JNI_RaiseExceptionByClassName)</span></span><span style="color:#080"><br></span><span style="background-color:rgb(250,250,250)"><span style="color:#080">ATSINSflab(__patsflab_JNI_eval):</span></span><span style="color:#080"><br></span><span style="background-color:rgb(250,250,250)"><span style="color:#080">ATSINSmove(tmp960, atscntrb_JNI_GetStringUTFChars(arg0, arg2)) ;</span></span><span style="color:#080"><br></span><span style="background-color:rgb(250,250,250)"><span style="color:#080">ATSINSmove_void(tmp962, atscntrb_JNI_ReleaseStringUTFChars(arg0, arg2, tmp960)) ;</span></span><span style="color:#080"><br></span><span style="background-color:rgb(250,250,250)"><span style="color:#080">ATSINSmove_void(tmp964, atscntrb_JNI_RaiseExceptionByClassName(arg0, ATSPMVstring(&quot;</span></span><span style="color:#000">java</span><span style="color:#660">/</span><span style="color:#000">lang</span><span style="color:#660">/</span><span style="color:#606">IllegalArgumentException</span><span style="color:#080">&quot;), ATSPMVstring(&quot;</span><span style="color:#606">ParsingError</span><span style="color:#080">&quot;))) ;<br><br><br></span></div></code></div><br><br>On Wednesday, December 10, 2014 12:57:22 PM UTC-5, gmhwxi wrote:
+                                                        <blockquote style="margin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex">
+                                                            <div dir="ltr"><br>You can also do it this way:<br><br>patsopt -DATS JNI_targetloc=\\&quot;${JNI}\\&quot; ...<br><br>if you set JNI as an environment variable.<br><br>On Wednesday, December 10, 2014 12:19:00 PM UTC-5, Brandon Barker wrote:
+                                                                <blockquote style="margin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex">
+                                                                    <div dir="ltr">Sorry if it has been asked before, I will try to update the approrpiate docs as needed. If you have something like:
+                                                                        <div><br></div>
+                                                                        <div>
+                                                                            <div>staload JNI = &quot;{$JNI}/SATS/jni.sats&quot;</div>
+                                                                        </div>
+                                                                        <div><br></div>
+                                                                        <div>How do you set $JNI? Environment variables seems to not be the answer.</div>
+                                                                        <div><br></div>
+                                                                        <div><br></div>
+                                                                    </div>
+                                                                </blockquote>
+                                                            </div>
+                                                        </blockquote>
+                                                    </div>
+                                                </div><span><font color="#888888">\n\n<p></p>\n\n\n</font></span></blockquote>
+                                        </div><br></div>\n</blockquote>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/u9UJAmIvDO8J" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>Brandon Barker</span></td>\n
+            <td class="lastPostDate">12/10/14 10:53 AM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">I think I may have spotted a problem but need to step out for a few minutes:
+                            <div><br></div>
+                            <div>
+                                <div>\xc2\xa0 &quot;${INCLUDE} -IIATS ${<span style="background-color:rgb(255,255,0)">PATSHOME</span>}/contrib -I${JNIincl} -c Calculator.dats&quot;</div>
+                                <div>} // end of [Calculator_dats_o]</div>
+                            </div>
+                            <div><br></div>
+                            <div>I think it should be reloc; do you have a symlink there to ATS-contrib/contrib?</div>
+                        </div>
+                        <div><br>
+                            <div>
+                                <blockquote style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+                                    <blockquote>
+                                        <div>
+                                            <div>\n\n
+                                                <p></p>\n\n-- <br>\nYou received this message because you are subscribed to the Google Groups &quot;ats-lang-users&quot; group.<br>\nTo unsubscribe from this group and stop receiving emails from it, send an email to <a href="javascript:void(0);" rel="nofollow">ats-lang-user...@googlegroups.com</a>.<br>\nTo post to this group, send email to <a href="javascript:void(0);" rel="nofollow">ats-lan...@googlegroups.com</a>.<br>\nVisit this group at <a href="http://groups.google.com/group/ats-lang-users" rel="nofollow">http://groups.google.com/group/ats-lang-users</a>.<br></div>
+                                        </div>
+                                    </blockquote>\nTo view this discussion on the web visit <a href="https://groups.google.com/d/msgid/ats-lang-users/e7fbc06e-c597-4f42-b473-acc81e664371%40googlegroups.com?utm_medium=email&amp;utm_source=footer" rel="nofollow">https://groups.google.com/d/msgid/ats-lang-users/e7fbc06e-c597-4f42-b473-acc81e664371%40googlegroups.com</a>.<br>\n</blockquote>
+                            </div><br><br>
+                            <div><br></div>-- <br>
+                            <div>Brandon Barker<br><a href="javascript:void(0);" rel="nofollow">brandon...@gmail.com</a><br><span style="padding-right:16px;width:16px;min-height:16px"></span></div>\n</div>\n</div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/Eox1qm3GjF8J" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>gmhwxi</span></td>\n
+            <td class="lastPostDate">12/10/14 11:02 AM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">You got it :)<br><br>Please change PATSHOME to PATSHOMERELOC.<br><br>In my setting, these two are the same.</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/mZpTsvKrXj4J" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>gmhwxi</span></td>\n
+            <td class="lastPostDate">12/10/14 11:07 AM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">FYI. I have fixed it in the Github.</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/l43uXdMxFjIJ" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>Brandon Barker</span></td>\n
+            <td class="lastPostDate">1/19/15 10:10 AM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">I seem to be having a bit of trouble with this mechanism still. The #define works (commented out now), but the command line option shown below must not be quite right:
+                            <div><br></div>
+                            <div>
+                                <div>brand_000@bbsurfacepro3 ~</div>
+                                <div>$ patscc -DATS UNSAFE_targetloc=&quot;/home/brand_000/ATS-Postiats/prelude/SATS&quot; hello.dats</div>
+                                <div>patsopt: error(0): the command-line argument [UNSAFE_targetloc=/home/brand_000/ATS-Postiats/prelude/SATS] cannot be properly parsed.</div>
+                                <div>exit(ATS): uncaught exception: _2home_2brand_000_2ATS_2dPostiats_2src_2pats_error_2esats__FatalErrorExn(1025)</div>
+                                <div><br></div>
+                                <div>brand_000@bbsurfacepro3 ~</div>
+                                <div>$ patscc -DATS UNSAFE_targetloc=\\&quot;/home/brand_000/ATS-Postiats/prelude/SATS\\&quot; hello.dats</div>
+                                <div>patsopt: error(0): the command-line argument [UNSAFE_targetloc=/home/brand_000/ATS-Postiats/prelude/SATS] cannot be properly parsed.</div>
+                                <div>exit(ATS): uncaught exception: _2home_2brand_000_2ATS_2dPostiats_2src_2pats_error_2esats__FatalErrorExn(1025)</div>
+                                <div><br></div>
+                                <div><br></div>
+                                <div>
+                                    <div>
+                                        <font face="monospace, monospace">//#define UNSAFE_targetloc &quot;$PATSHOME/prelude/SATS&quot;</font>
+                                    </div>
+                                    <div>
+                                        <font face="monospace, monospace"><br></font>
+                                    </div>
+                                    <div>
+                                        <font face="monospace, monospace">staload UN = &quot;{$UNSAFE}/unsafe.sats&quot;</font>
+                                    </div>
+                                    <div>
+                                        <font face="monospace, monospace"><br></font>
+                                    </div>
+                                    <div>
+                                        <font face="monospace, monospace">implement</font>
+                                    </div>
+                                    <div>
+                                        <font face="monospace, monospace">main0 () = {</font>
+                                    </div>
+                                    <div>
+                                        <font face="monospace, monospace">\xc2\xa0 val x = $UN.cast2size(7)</font>
+                                    </div>
+                                    <div>
+                                        <font face="monospace, monospace">\xc2\xa0 val () = println! (&quot;{$UNSAFE}&quot;)</font>
+                                    </div>
+                                    <div>
+                                        <font face="monospace, monospace">\xc2\xa0 val () = println! (&quot;Hello world!&quot;) // English</font>
+                                    </div>
+                                    <div>
+                                        <font face="monospace, monospace">\xc2\xa0 val () = println! x</font>
+                                    </div>
+                                    <div>
+                                        <font face="monospace, monospace">} (* end of [main0] *)</font>
+                                    </div>
+                                </div>
+                                <div><br></div>
+                                <div><br></div>
+                            </div>
+                        </div>
+                        <div><br>
+                            <div>
+                                <blockquote>On Wed, Dec 10, 2014 at 12:56 PM, gmhwxi <span dir="ltr">&lt;<a href="javascript:void(0);" rel="nofollow">gmh...@gmail.com</a>&gt;</span> wrote:<br></blockquote>
+                                <blockquote style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+                                    <div dir="ltr">
+                                        <blockquote>You can also do it this way<br><br>patsopt -DATS JNI_targetloc=\\&quot;${JNI}\\&quot; ...<br><br></blockquote>if you set JNI is as an environment variable.
+                                        <blockquote><span><br><br>On Wednesday, December 10, 2014 12:33:37 PM UTC-5, gmhwxi wrote:</span></blockquote>
+                                        <blockquote style="margin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex">
+                                            <blockquote><span><div dir="ltr">You can set it as follows:<br><div><br>#define JNI_targetloc &quot;$PATSHOMERELOC/contrib/JNI&quot;<br><br></div></div></span></blockquote>
+                                            <blockquote><span><div><br><div>On Wed, Dec 10, 2014 at 12:19 PM, Brandon Barker <span dir="ltr"></span>wrote:<br><br>
+                                                <blockquote style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+                                                    <div dir="ltr">Sorry if it has been asked before, I will try to update the approrpiate docs as needed. If you have something like:
+                                                        <div><br></div>
+                                                        <div>
+                                                            <div>staload JNI = &quot;{$JNI}/SATS/jni.sats&quot;</div>
+                                                        </div>
+                                                        <div><br></div>
+                                                        <div>How do you set $JNI? Environment variables seems to not be the answer.</div><span><font color="#888888"><div><br></div></font></span><br></div>
+                                                </blockquote>
+                                    </div>
+                            </div>\n</span>
+                            </blockquote>
+                            </blockquote>
+                        </div>
+                        <blockquote><span>\n\n<p></p>\n\n-- <br>\nYou received this message because you are subscribed to the Google Groups &quot;ats-lang-users&quot; group.<br>\nTo unsubscribe from this group and stop receiving emails from it, send an email to <a href="javascript:void(0);" rel="nofollow">ats-lang-user...@googlegroups.com</a>.<br>\nTo post to this group, send email to <a href="javascript:void(0);" rel="nofollow">ats-lan...@googlegroups.com</a>.<br>\nVisit this group at <a href="http://groups.google.com/group/ats-lang-users" rel="nofollow">http://groups.google.com/group/ats-lang-users</a>.<br></span></blockquote>\nTo view this discussion on the web visit <a href="https://groups.google.com/d/msgid/ats-lang-users/7df46954-3f6f-48e4-999d-bf0c448f7f34%40googlegroups.com?utm_medium=email&amp;utm_source=footer" rel="nofollow">https://groups.google.com/d/msgid/ats-lang-users/7df46954-3f6f-48e4-999d-bf0c448f7f34%40googlegroups.com</a>.<br>\n</blockquote>
+                    </div><br><br>
+                    <div><br></div>-- <br>
+                    <div>Brandon Barker<br><a href="javascript:void(0);" rel="nofollow">brandon...@gmail.com</a><br><span style="padding-right:16px;width:16px;min-height:16px"></span></div>\n</div>\n</div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/bQfQyHsjF1UJ" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>gmhwxi</span></td>\n
+            <td class="lastPostDate">1/19/15 10:44 AM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">Try:
+                            <blockquote><br><br>patscc -DATS UNSAFE_targetloc=\\\\\\&quot;/home/brand_000/ATS-Postiats/prelude/SATS\\\\\\&quot; hello.dats</blockquote>
+                        </div>
+                        <div><br>
+                            <div>
+                                <blockquote style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex"><span><font color="#888888">\nTo view this discussion on the web visit <a href="https://groups.google.com/d/msgid/ats-lang-users/CAORbNRpYFTW3_JQapuWQr9zyQ6j%3D6rXH52iKeQ%3DhxJ2avB%3D60w%40mail.gmail.com?utm_medium=email&amp;utm_source=footer" rel="nofollow">https://groups.google.com/d/msgid/ats-lang-users/CAORbNRpYFTW3_JQapuWQr9zyQ6j%3D6rXH52iKeQ%3DhxJ2avB%3D60w%40mail.gmail.com</a>.<br>\n</font></span></blockquote>
+                            </div><br></div>\n</div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/_1HMxQtE84QJ" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>Brandon Barker</span></td>\n
+            <td class="lastPostDate">1/19/15 10:53 AM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">Ah yes, this strange cygwin quoting issue again. I&#39;ll make a note on the wiki which I&#39;ll hopefully find in case I forget again.
+                            <div>Thanks!</div>
+                        </div>
+                        <div><br>
+                            <div>
+                                <blockquote style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">\nTo view this discussion on the web visit <a href="https://groups.google.com/d/msgid/ats-lang-users/CAPPSPLpa1rsSj1HTt6cKvevC19LhTMepJ2TUxVKmXbrc-tceUQ%40mail.gmail.com?utm_medium=email&amp;utm_source=footer" rel="nofollow">https://groups.google.com/d/msgid/ats-lang-users/CAPPSPLpa1rsSj1HTt6cKvevC19LhTMepJ2TUxVKmXbrc-tceUQ%40mail.gmail.com</a>.<br>\n</blockquote>
+                            </div><br><br>
+                            <div><br></div>-- <br>
+                            <div>Brandon Barker<br><a href="javascript:void(0);" rel="nofollow">brandon...@gmail.com</a><br><span style="padding-right:16px;width:16px;min-height:16px"></span></div>\n</div>\n</div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/C5fz0NyPAQAJ" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>Yannick Duch&ecirc;ne</span></td>\n
+            <td class="lastPostDate">12/27/15 2:57 PM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">
+                            <blockquote><br><br>Le mercredi 10 d\xc3\xa9cembre 2014 18:33:37 UTC+1, gmhwxi a \xc3\xa9crit\xc2\xa0:
+                                <blockquote style="margin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex">
+                                    <div dir="ltr">You can set it as follows:<br>
+                                        <div><br>#define JNI_targetloc &quot;$PATSHOMERELOC/contrib/JNI&quot;<br><br></div>
+                                    </div>
+                                </blockquote>
+                                <div><br></div>
+                            </blockquote>
+                            <div>I have three related questions.</div>
+                            <div><br></div>
+                            <div>Are underscore formally allowed in path variable names? No path variable use any underscore in the distribution nor in contrib, so I wonder.</div>
+                            <div><br></div>
+                            <div>What explicitly if a variable is unknown? it is to be left as is or it is to be substituted an empty string?</div>
+                            <div><br></div>
+                            <div>Are substitutions to be recursive?</div>
+                            <div><br></div>
+                            <div>I know I could play with patscc to test, this is just that i prefer authoritative answers.</div>
+                            <div><br></div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/IZ6O6SGfAQAJ" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>gmhwxi</span></td>\n
+            <td class="lastPostDate">12/27/15 7:36 PM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">1. The character &#39;_&#39; can be used in path names<br>2. Say you use $FOO but FOO is not defined (or defined as a non-string), the $FOO changes to FOO.<br>3. Recursive substitution is not supported (it can be easily supported if needed).</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/pqAN-aurAQAJ" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>Yannick Duch&ecirc;ne</span></td>\n
+            <td class="lastPostDate">12/27/15 11:26 PM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr">
+                            <blockquote><br><br>Le lundi 28 d\xc3\xa9cembre 2015 04:36:57 UTC+1, gmhwxi a \xc3\xa9crit\xc2\xa0:
+                                <blockquote style="margin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex">
+                                    <div dir="ltr">1. The character &#39;_&#39; can be used in path names<br></div>
+                                </blockquote>
+                            </blockquote>
+                            <div>Path variable names, I assume.</div>
+                            <blockquote>
+                                <div>\xc2\xa0</div>
+                                <blockquote style="margin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex">
+                                    <div dir="ltr">2. Say you use $FOO but FOO is not defined (or defined as a non-string), the $FOO changes to FOO.<br></div>
+                                </blockquote>
+                            </blockquote>
+                            <div>Okay.</div>
+                            <blockquote>
+                                <div>\xc2\xa0</div>
+                                <blockquote style="margin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex">
+                                    <div dir="ltr">3. Recursive substitution is not supported (it can be easily supported if needed).<br><br></div>
+                                </blockquote>
+                            </blockquote>
+                            <div>\xc2\xa0That&#39;s OK, not an issue. This is just for a tool which needs to be able to locate file the same way Postiats do, and it was worth to ask for documentation too.</div>
+                            <div><br></div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subject"><a href="https://groups.google.com/d/msg/ats-lang-users/i_AKS-nggZY/qCOK16cUAgAJ" title="Re: variables in load paths">Re: variables in load paths</a></td>\n
+            <td class="author"><span>gmhwxi</span></td>\n
+            <td class="lastPostDate">12/29/15 7:30 AM</td>\n
+            <td class="snippet">
+                <div style="overflow:auto">
+                    <div style="max-height:10000px">
+                        <div dir="ltr"><br>I changed the implementation a bit to support recursive substitution;<br>the maximal recursion depth is set to be 100.</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>\n<a href="https://groups.google.com/forum/?_escaped_fragment_=topic/ats-lang-users/i_AKS-nggZY%5B21-40%5D">More topics &raquo;</a></body>
+
+</html>
